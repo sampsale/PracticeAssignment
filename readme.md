@@ -23,7 +23,7 @@ reload.
 
 ## How to start
 
-1. Install packages for both back and end 
+1. Install packages for both back- and frontend
     - npm install 
     - pip -r install requirements.txt
 2. Run on main directory 
