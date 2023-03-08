@@ -19,6 +19,7 @@ function App() {
   // Display the selected book on form
   function DisplayBook(id) {
     setNewBook(books.find((book) => book.id === id));
+
   }
 
 
@@ -79,11 +80,16 @@ function App() {
     }
   }
 
+  // Get book title by id
+  function getTitleById(id) {
+    const book = books.find(book => book.id === id);
+    return book.title;
+  }
 
   // Show whatever book is being edited or deleted
   function ShowSelectedBook() {
     if (newBook.id !== null) {
-      return (<p>Editing: <b>{newBook.title}</b> ID: <b>{newBook.id}</b></p>)
+      return (<p>Editing: <b>{getTitleById(newBook.id)}</b> ID: <b>{newBook.id}</b></p>)
     } else {
       return (<p><b>Creating new book</b></p>)
     }

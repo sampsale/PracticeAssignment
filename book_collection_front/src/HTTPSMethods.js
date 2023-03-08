@@ -22,7 +22,6 @@ function Post(newBook, setBooks) {
 
 // Method to delete
 function Delete(id, setBooks) {
-    console.log(id)
     const requestOptions = {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
