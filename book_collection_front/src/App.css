@@ -1,0 +1,32 @@
+/* .App {
+  text-align: center;
+} */
+h2 {
+  text-align: center;
+}
+
+li {
+  text-align: left;
+}
+
+input, textarea {
+  width: 80%;
+}
+textarea {
+  height: 90px;
+}
+.BookList, .BookForm {
+  width: 50%;
+}
+.Container {
+  width:100%;
+  text-align:center;
+  display:flex;
+ }
+ .Container > div {
+  width: 50%;  
+  display: inline-block;
+  vertical-align: top;   
+  margin:2%;    
+  padding:20px;
+ }
