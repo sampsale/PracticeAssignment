@@ -2,9 +2,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-
-
-
 POSTGRES_USER='postgres'
 POSTGRES_PASSWORD='admin'
 POSTGRES_SERVER='localhost'

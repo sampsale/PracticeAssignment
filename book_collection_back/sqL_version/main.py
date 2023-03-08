@@ -27,6 +27,11 @@ def get_db():
         db.close()
 
 # Get all books
+@app.get("/")
+async def root():
+    return {"message": "Welcome to Book Collection API. Current endpoints = /get_books/, add_book/, edit_book/[book_id], delete_book/[book_id] "}
+
+
 @app.get("/get_books/", response_model=list[schemas.Book])
 def get_books(db: Session = Depends(get_db)):
     books = crud.get_books(db)
