@@ -1,6 +1,8 @@
 
 # Full stack task
 
+## Assignment
+
 Implement a simple single-page web application which manages a collection of books. Your
 web application should have a UI consisting of a single HTML web page, and a simple
 backend. The backend provides a REST API with which the UI communicates. We want the
@@ -20,6 +22,8 @@ collection.
 reload.
 7. The application (front and backend) can be started with a single command in terminal
 
+
+## About
 
 This app has both SQL database version, running with PostgreSQL and a version with an in-memory dictionary serving as the "database". Depending on which one you are using, change the variable dataBaseEnabled on HTTPSMethods.js to true or false. Default is false, since there is no PostgreSQL server provided, but if you can run PostgreSQL locally, it's possible; just change the settings of database.py to match yours.
 
