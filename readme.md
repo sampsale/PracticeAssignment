@@ -25,7 +25,7 @@ reload.
 
 ## About
 
-Frontend in React as asked. Backend made with Python. FastAPI for REST, PostgreSQL for database. 
+Frontend in **React** as asked. Backend made with Python; **FastAPI** for REST, **PostgreSQL** for database. 
 
 This app has both SQL database version, running with PostgreSQL and a version with an in-memory dictionary serving as the "database". Depending on which one you are using, change the variable dataBaseEnabled on HTTPSMethods.js to true or false. Default is false, since there is no PostgreSQL server provided, but if you can run PostgreSQL locally, it's possible; just change the settings of database.py to match yours.
 
