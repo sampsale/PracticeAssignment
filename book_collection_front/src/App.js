@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import './App.css';
 import { Post, Delete, Put, Get } from './HTTPSMethods.js';
 
+
+
 function App() {
 
   // All books
@@ -15,7 +17,7 @@ function App() {
     Get(setBooks)
   }, []);
 
-
+  
   // Display the selected book on form
   function DisplayBook(id) {
     setNewBook(books.find((book) => book.id === id));

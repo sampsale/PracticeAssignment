@@ -1,5 +1,9 @@
 
 // Method to add
+
+const dataBaseEnabled = false
+
+
 function Post(newBook, setBooks) {
 
     const requestOptions = {
@@ -11,8 +15,13 @@ function Post(newBook, setBooks) {
         .then((response) => response.json())
         .then((data) => {
             // Handle data
-            console.log(data[0])
-            setBooks(data[1])
+            if (dataBaseEnabled) {
+                setBooks(data)
+            } else {
+                console.log(data[0])
+                setBooks(data[1])
+            }
+
         })
         .catch((err) => {
             console.log(err.message);
@@ -31,8 +40,12 @@ function Delete(id, setBooks) {
         .then((response) => response.json())
         .then((data) => {
             // Handle data
-            console.log(data[0])
-            setBooks(data[1])
+            if (dataBaseEnabled) {
+                setBooks(data)
+            } else {
+                console.log(data[0])
+                setBooks(data[1])
+            }
         })
         .catch((err) => {
             console.log(err.message);
@@ -50,8 +63,13 @@ function Put(book, setBooks) {
         .then((response) => response.json())
         .then((data) => {
             // Handle data
-            console.log(data[0])
-            setBooks(data[1])
+            if (dataBaseEnabled) {
+                setBooks(data)
+            } else {
+                console.log(data[0])
+                setBooks(data[1])
+            }
+
         })
         .catch((err) => {
             console.log(err.message);
@@ -64,6 +82,10 @@ function Get(setBooks) {
     fetch("http://127.0.0.1:8000/get_books/")
         .then((res) => res.json())
         .then((data) => {
+            // If there are no books, add the Lord of the Rings
+            if (data.length === 0) {
+                Post({ title: "The Lord of the Rings", author: "J.R.R. Tolkien", description: "The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien." }, setBooks)
+            }
             setBooks(data);
         })
         .catch((err) => {

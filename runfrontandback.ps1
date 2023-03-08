@@ -1,7 +1,7 @@
 $npm_dir = Join-Path $PSScriptRoot '.\book_collection_front'
 $npm_command = 'npm start'
 
-$py_dir = Join-Path $PSScriptRoot '.\book_collection_back'
+$py_dir = Join-Path $PSScriptRoot '.\book_collection_back\no_sql_version'
 $py_command = 'py -m uvicorn main:app --reload'
 
 # Start the two applications in separate processes

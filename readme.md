@@ -21,6 +21,8 @@ reload.
 7. The application (front and backend) can be started with a single command in terminal
 
 
+This app has both SQL database version, running with PostgreSQL (need server address to access) and a version with a in-memory dictionary "database". Depending on which one you are using, change the variable dataBaseEnabled on HTTPSMethods.js to true or false. Default is false, since there is no PostgreSQL server provided, but if you can run PostgreSQL locally, it's possible; just change th settings of database.py to match yours.  
+
 ## How to start
 
 1. Install packages for both back- and frontend

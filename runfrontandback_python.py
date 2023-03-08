@@ -5,7 +5,7 @@ npm_dir = r'.\book_collection_front'
 npm_command = 'npm start'
 
 # Change the directory to the one where your Python application is located
-py_dir = r'.\book_collection_back'
+py_dir = r'.\book_collection_back\no_sql_version'
 py_command = 'py -m uvicorn main:app --reload'
 
 # Start the two applications in separate processes

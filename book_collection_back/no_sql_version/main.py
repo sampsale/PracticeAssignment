@@ -6,6 +6,8 @@ from pydantic import BaseModel
 # Init app
 app = FastAPI()
 
+SQLdatabaseinuse = False
+
 # Allow all origins, headers and methods
 app.add_middleware(
     CORSMiddleware,
@@ -40,6 +42,7 @@ async def create_book(book: Book):
     books.append({"title": book.title, "author": book.author, "description": book.description, "id": str(uuid4())})
     return {"message": "Post request received"}, books
 
+# Edit a book
 @app.put("/edit_book/{book_id}")
 async def edit_book(book_id: str, edited_book: Book):
     # If book_id matches an id in books, edit that book
@@ -51,7 +54,7 @@ async def edit_book(book_id: str, edited_book: Book):
             book["description"] = edited_book.description
     return {"message": "Put request received"}, books
 
-
+# Delete a book
 @app.delete("/delete_book/{book_id}")
 async def delete_book(book_id: str):
     # If book_id matches an id in books, remove that book from books
