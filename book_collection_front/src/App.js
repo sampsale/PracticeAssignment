@@ -30,6 +30,14 @@ function App() {
 
   // Save new book or update existing book
   function SaveBook() {
+
+    // If the book doesnt exist, show button to add new book
+    let buttontext = 'Add new'
+    // If book already exists, show button to update existing book
+    if (books.find((book) => book.id === newBook.id)) {
+      buttontext = 'Update existing book'
+    }
+
     // If book already exists, show buttons to update or delete
     if (newBook.id !== null || newBook.author !== "" || newBook.title !== "" || newBook.description !== "") {
       return (<button onClick={() => {
@@ -37,14 +45,13 @@ function App() {
         if (books.find((book) => book.id === newBook.id)) {
           Put(newBook, setBooks)
           ResetForm()
-          
         }
         // If book doesn't exist, add it to list of books
         else {
           Post(newBook, setBooks)
           ResetForm()
         };
-      }}>Save/Add</button>)
+      }}>{buttontext}</button>)
     }
 
   }
@@ -97,8 +104,8 @@ function App() {
         <ul>
           {/* Map through books and display them */}
           {books.map((book) => (
-            <li key={book.id}>
-              <p onClick={() => DisplayBook(book.id)}>{book.title} || <b>{book.author}</b></p>
+            <li key={book.id} className='Book'onClick={() => DisplayBook(book.id)}>
+              <p>{book.title} || <b>{book.author}</b></p>
             </li>
           ))}
         </ul>

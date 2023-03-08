@@ -30,3 +30,10 @@ textarea {
   margin:2%;    
   padding:20px;
  }
+ .Book {
+  border: 2px solid #000000;
+ }
+ .Book:hover{
+  background-color: rgb(173, 164, 164);
+  cursor: pointer;
+ }

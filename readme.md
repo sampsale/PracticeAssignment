@@ -24,7 +24,7 @@ reload.
 ## How to start
 
 1. Install packages for both back- and frontend
-    - npm install 
-    - pip -r install requirements.txt
+    - cd book_collection_front ; npm install 
+    - cd book_collection_back ; pip install -r requirements.txt
 2. Run on main directory 
     - py runfrontandback.py
