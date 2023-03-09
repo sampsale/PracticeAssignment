@@ -1,9 +1,9 @@
 
-// Method to add
 
+// If you want to use the database, change the value to true
 const dataBaseEnabled = false
 
-
+// Method to post
 function Post(newBook, setBooks) {
 
     const requestOptions = {

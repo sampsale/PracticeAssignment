@@ -27,13 +27,23 @@ reload.
 
 Frontend in **React** as asked. Backend made with Python; **FastAPI** for REST, **PostgreSQL** for database. 
 
-This app has both SQL database version, running with PostgreSQL and a version with an in-memory dictionary serving as the "database". Depending on which one you are using, change the variable dataBaseEnabled on HTTPSMethods.js to true or false. Default is false, since there is no PostgreSQL server provided, but if you can run PostgreSQL locally, it's possible; just change the settings of database.py to match yours.
+This app has both SQL database version, running with PostgreSQL, and a version with an in-memory dictionary serving as the "database". Depending on which one you are using, change the variable dataBaseEnabled on HTTPSMethods.js to true or false. Default is false, since there is no PostgreSQL server provided, but if you can run PostgreSQL locally, it's possible; just change the settings of book_collection_back\sql_version\database.py to match yours. 
 
-## How to start
+## How to start (default version)
 
 1. Install packages for both back- and frontend
     - cd book_collection_front ; npm install 
     - cd book_collection_back/no_sql_version ; pip install -r requirements.txt
 2. Run either of these in main directory to start both ends
+    - py runfrontandback_python.py
+    - runfrontandback_powershell.ps1
+
+## How to start (SQL)
+
+1. Install packages for both back- and frontend
+    - cd book_collection_front ; npm install 
+    - cd book_collection_back/sql_version ; pip install -r requirements.txt
+2. Change 'DATABASE_URL' on book_collection_back\sql_version\database.py to match your own database. 
+3. Run either of these in main directory to start both ends. You will also have to change 'py_version' on these to the SQL version. (instructions in comments)
     - py runfrontandback_python.py
     - runfrontandback_powershell.ps1
