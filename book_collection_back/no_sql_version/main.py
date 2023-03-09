@@ -40,7 +40,7 @@ async def serve_books():
 @app.post("/add_book/")
 async def create_book(book: Book):
     books.append({"title": book.title, "author": book.author, "description": book.description, "id": str(uuid4())})
-    return {"message": "Post request received"}, books
+    return books
 
 # Edit a book
 @app.put("/edit_book/{book_id}")
@@ -52,7 +52,7 @@ async def edit_book(book_id: str, edited_book: Book):
             book["title"] = edited_book.title
             book["author"] = edited_book.author
             book["description"] = edited_book.description
-    return {"message": "Put request received"}, books
+    return books
 
 # Delete a book
 @app.delete("/delete_book/{book_id}")
@@ -63,4 +63,4 @@ async def delete_book(book_id: str):
         print(book)
         if book["id"] == book_id:
             books.remove(book)
-    return {"message": "Delete request received"}, books
+    return books

@@ -1,7 +1,6 @@
 
 
-// If you want to use the database, change the value to true
-const dataBaseEnabled = false
+const backendurl = 'http://127.0.0.1:8000'
 
 // Method to post
 function Post(newBook, setBooks) {
@@ -11,17 +10,11 @@ function Post(newBook, setBooks) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: newBook.title, author: newBook.author, description: newBook.description })
     };
-    fetch(`http://127.0.0.1:8000/add_book/`, requestOptions)
+    fetch(backendurl + `/add_book/`, requestOptions)
         .then((response) => response.json())
         .then((data) => {
             // Handle data
-            if (dataBaseEnabled) {
-                setBooks(data)
-            } else {
-                console.log(data[0])
-                setBooks(data[1])
-            }
-
+            setBooks(data)
         })
         .catch((err) => {
             console.log(err.message);
@@ -36,16 +29,11 @@ function Delete(id, setBooks) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: id })
     };
-    fetch(`http://127.0.0.1:8000/delete_book/` + id, requestOptions)
+    fetch(backendurl + `/delete_book/` + id, requestOptions)
         .then((response) => response.json())
         .then((data) => {
             // Handle data
-            if (dataBaseEnabled) {
-                setBooks(data)
-            } else {
-                console.log(data[0])
-                setBooks(data[1])
-            }
+            setBooks(data)
         })
         .catch((err) => {
             console.log(err.message);
@@ -59,16 +47,11 @@ function Put(book, setBooks) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: book.title, author: book.author, description: book.description })
     };
-    fetch(`http://127.0.0.1:8000/edit_book/` + book.id, requestOptions)
+    fetch(backendurl + `/edit_book/` + book.id, requestOptions)
         .then((response) => response.json())
         .then((data) => {
             // Handle data
-            if (dataBaseEnabled) {
-                setBooks(data)
-            } else {
-                console.log(data[0])
-                setBooks(data[1])
-            }
+            setBooks(data)
 
         })
         .catch((err) => {
@@ -79,12 +62,13 @@ function Put(book, setBooks) {
 
 // Method to get
 function Get(setBooks) {
-    fetch("http://127.0.0.1:8000/get_books/")
+    fetch(backendurl + "/get_books/")
         .then((res) => res.json())
         .then((data) => {
-            // If there are no books, add the Lord of the Rings
+            // If there are no books, add few books to database
             if (data.length === 0) {
                 Post({ title: "The Lord of the Rings", author: "J.R.R. Tolkien", description: "The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien." }, setBooks)
+                Post({ title: 'Harry Potter and the Philosopher\'s Stone', author: 'J.K. Rowling', description: 'Harry Potter and the Philosopher\'s Stone is a fantasy novel written by British author J. K. Rowling.' }, setBooks)
             }
             setBooks(data);
         })

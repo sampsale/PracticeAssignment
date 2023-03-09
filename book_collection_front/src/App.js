@@ -21,9 +21,7 @@ function App() {
   // Display the selected book on form
   function DisplayBook(id) {
     setNewBook(books.find((book) => book.id === id));
-
   }
-
 
   // Save new book or update existing book
   function SaveBook() {
