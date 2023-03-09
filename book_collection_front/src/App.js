@@ -3,7 +3,6 @@ import './App.css';
 import { Post, Delete, Put, Get } from './HTTPSMethods.js';
 
 
-
 function App() {
 
   // All books
@@ -11,13 +10,11 @@ function App() {
   // Book to add or edit
   let [newBook, setNewBook] = useState({ title: "", author: "", description: "", id: null });
 
-
   // Get books from backend
   useEffect(() => {
     Get(setBooks)
   }, []);
 
-  
   // Display the selected book on form
   function DisplayBook(id) {
     setNewBook(books.find((book) => book.id === id));
@@ -50,7 +47,6 @@ function App() {
     }
   }
 
-
   // Delete existing book
   function DeleteExistingBook() {
     // If book exists, show delete button
@@ -63,15 +59,12 @@ function App() {
         }
       }}>Delete this book</button>
     }
-
   }
-
 
   // Reset form
   function ResetForm() {
     setNewBook({ title: "", author: "", description: "", id: null })
   }
-
 
   // Display reset form button only if there is something to reset
   function ResetButton() {
@@ -80,7 +73,7 @@ function App() {
     }
   }
 
-  // Get book title by id
+  // Get book title by id, do this so it doesn't change when editing
   function getTitleById(id) {
     const book = books.find(book => book.id === id);
     return book.title;
@@ -88,13 +81,13 @@ function App() {
 
   // Show whatever book is being edited or deleted
   function ShowSelectedBook() {
+    // If book is being edited, show title and id, else tell user that new book is being created
     if (newBook.id !== null) {
       return (<p>Editing: <b>{getTitleById(newBook.id)}</b> ID: <b>{newBook.id}</b></p>)
     } else {
       return (<p><b>Creating new book</b></p>)
     }
   }
-
 
   // Form to add or edit book
   function Form() {

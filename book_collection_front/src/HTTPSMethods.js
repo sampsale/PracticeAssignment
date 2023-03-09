@@ -1,10 +1,7 @@
-
-
 const backendurl = 'http://127.0.0.1:8000'
 
 // Method to post
 function Post(newBook, setBooks) {
-
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
