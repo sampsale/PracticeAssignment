@@ -29,10 +29,10 @@ function App() {
   function SaveBook() {
 
     // If the book doesnt exist, show button to add new book
-    let buttontext = 'Add new'
+    let buttontext = 'Save new'
     // If book already exists, show button to update existing book
     if (books.find((book) => book.id === newBook.id)) {
-      buttontext = 'Update existing book'
+      buttontext = 'Save'
     }
 
     // If book already exists, show button to update

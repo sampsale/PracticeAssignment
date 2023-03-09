@@ -9,7 +9,7 @@ py_dir = r'.\book_collection_back'
 
 # if you want to use the sql version, change the line below to: py_version = 'sql_version.'
 py_version = 'no_sql_version.' 
-py_command = f'uvicorn {py_version}main:app --reload'
+py_command = f'py -m uvicorn {py_version}main:app --reload'
 
 # Start the two applications in separate processes
 npm_process = subprocess.Popen(npm_command, cwd=npm_dir, shell=True)
