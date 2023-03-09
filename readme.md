@@ -27,7 +27,7 @@ reload.
 
 Frontend in **React** as asked. Backend made with Python; **FastAPI** for REST, **PostgreSQL** for database. 
 
-This app has both SQL database version, running with PostgreSQL, and a version with an in-memory dictionary serving as the "database". Since there is no PostgreSQL server provided, default version is the databaseless one, but if you can run PostgreSQL locally, it's possible; just change the settings of book_collection_back\sql_version\database.py to match yours. 
+This app has both SQL database version, running with PostgreSQL, and a version with an in-memory list serving as the "database". Since there is no PostgreSQL server provided, default version is the databaseless one, but if you can run PostgreSQL locally, it's possible; just change the settings of book_collection_back\sql_version\database.py to match yours. 
 
 ## How to start (default version)
 
